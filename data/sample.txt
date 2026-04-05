@@ -1,0 +1,24 @@
+Agentic AI Course — Sample Knowledge Base
+========================================
+
+This document describes the academic project agent architecture.
+
+ReAct Pattern
+-------------
+The agent reasons in steps: Thought → Action (tool) → Observation → repeat until the task is answered. The model explains its reasoning when helpful.
+
+Agentic RAG
+-----------
+Retrieval-Augmented Generation is exposed as a tool named `knowledge_base_search`. The agent decides when to query local documents versus using web search or computation tools.
+
+Middleware
+----------
+Middleware wraps the agent loop: logging, guardrails, PII masking, dynamic prompts, dynamic model selection, and human confirmation before sensitive tool calls.
+
+FAISS Vector Store
+--------------------
+Course materials in `data/sample.txt` are chunked, embedded with OpenAI, and stored in an in-memory FAISS index for the RAG tool.
+
+Safety Note
+-----------
+Python execution and web search tools are gated with human-in-the-loop confirmation in interactive mode.
